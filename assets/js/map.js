@@ -38,7 +38,7 @@
 
 					center: new google.maps.LatLng(27.7710091, -82.6393239),
 
-					zoom: 12,
+					zoom: 16,
 
 					scrollwheel: false,
 
