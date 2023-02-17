@@ -2662,6 +2662,20 @@ p:last-child {
 
 }
 
+.counter-area::before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    opacity: 0.1;
+    background: url(../img/icon.svg);
+    background-position: center center;
+    background-size: 150px 150px;
+}
+
 .counter-area .section-title h5 {
 
 	color: #ffffff;
