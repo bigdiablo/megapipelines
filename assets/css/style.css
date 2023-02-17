@@ -7716,7 +7716,7 @@ blockquote::after, .blockquote::after {
 }
 
 #individual .price-small-text:after {
-	content: "/ per Dialer per month";
+	content: "per Dialer per month";
 }
 
 #individual .price-discount:after {
@@ -7736,7 +7736,7 @@ blockquote::after, .blockquote::after {
 }
 
 #team .custom-text:after {
-	content: "/ per Dialer (min 5 dialers)";
+	content: "per Dialer per month";
 }
 
 #team .price-discount:after {
@@ -7781,4 +7781,9 @@ blockquote::after, .blockquote::after {
 
 .formula-input:focus {
 	background: rgba(173,216,230,0.4);
+}
+
+.banner-btn a {
+	margin-top: 0 !important;
+	margin-bottom: 0 !important;
 }
