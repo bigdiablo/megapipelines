@@ -4602,13 +4602,12 @@ p:last-child {
 
 .price-heading .price-name h2 {
 
+    line-height: 1;
     font-size: 45px;
-
     font-weight: 700;
-
     color: #6b7fbb;
-
-	display: inline-block;
+    margin-bottom: 0;
+    display: inline-block;
 
 }
 
@@ -7709,40 +7708,48 @@ blockquote::after, .blockquote::after {
 }
 
 #individual .total-price:after {
-	content: "$2,500.00";
+	content: "$2,500";
 }
 
 .quarterly #individual .total-price:after {
-	content: "$2,375.00";
+	content: "$2,375";
 }
 
 #individual .price-small-text:after {
 	content: "/ per Dialer per month";
 }
 
-.quarterly #individual .price-small-text:after {
-	content: "billed $7,125 up front";
+#individual .price-discount:after {
+	content: "Cheaper if paid quarterly";
+}
+
+.quarterly #individual .price-discount:after {
+	content: "5% cheaper than if paid monthly";
 }
 
 #team .total-price:after {
-	content: "$2,425.00";
+	content: "$2,425";
 }
 
 .quarterly #team .total-price:after {
-	content: "$2,183.00";
+	content: "$2,183";
 }
 
 #team .custom-text:after {
 	content: "/ per Dialer (min 5 dialers)";
 }
 
-.quarterly #team .custom-text:after {
-	content: "5% discount";
+#team .price-discount:after {
+	content: "3% cheaper than an Individual Plan";
+}
+
+.quarterly #team .price-discount:after {
+	content: "10% cheaper than if paid monthly";
 }
 
 #enterprise .total-price {
     font-size: 30px;
-    line-height: 64px;
+    line-height: 45px;
     display: flex;
     color: #999;
     justify-content: center;
@@ -7754,6 +7761,14 @@ blockquote::after, .blockquote::after {
 
 .quarterly #enterprise .total-price:after {
 	content: "Contact Us";
+}
+
+.price-discount {
+	text-align: center;
+}
+
+.price-description {
+	margin-top: 15px;
 }
 
 .formula-result {
