@@ -148,51 +148,68 @@
 
 	<section id="price" class="price-area pt-100 pb-70">
 
-		<div class="container">
+		<div id="price" class="container">
+
+			<div class="row align-items-center">
+				<div class="col-lg-12 col-md-12">
+					<div class="swith-price">
+						<div onclick="price()" class="control-price">
+							<span>Monthly</span>
+							<span>Quarterly</span>
+						</div>
+					</div>
+				</div>
+			</div>
 
 			<div class="row">
 
 				<div class="col-lg-4 col-md-6 price-item">
 
-					<div class="pricing-content">
+					<div id="individual" class="pricing-content">
 
 						<div class="price-heading">
 
 							<div class="price-name">
 
-								<h3>INDIVIDUAL</h3>
+								<h3>Individual Plan</h3>
 
-								<span class="price-small-text">$</span>
+								<h2 class="total-price"></h2>
+								<br>
+								<span class="price-small-text"></span>
 
-								<h2>25</h2>
+							</div>
 
-								<span class="price-small-text">/ per month</span>
-
+							<div class="price-description">
+								<p>Budding Businesses<br>Building a Brand</p>
 							</div>
 
 						</div>
 
-						<div class="price-btn"> <a href="#" class="default-btn">Get Started <span></span></a> </div>
+						<div class="price-btn"> <a href="#" class="default-btn">Buy Now <span></span></a> </div>
 
 						<div class="price-body">
 
 							<ul>
 
-								<li><i class="fa fa-check-circle"></i> Web Development</li>
+								<li><i class="fa fa-check-circle"></i> Free trial (50 calls or 5 days)</li>
 
-								<li><i class="fa fa-check-circle"></i> Personal Use</li>
+								<li><i class="fa fa-check-circle"></i> 1 Dialing Seat, 1 Admin Seat</li>
 
-								<li><i class="fa fa-check-circle"></i> Unlimited Projects</li>
+								<li><i class="fa fa-check-circle"></i> Administrative Portal</li>
 
-								<li><i class="fa fa-check-circle"></i> Project Management</li>
+								<li><i class="fa fa-check-circle"></i> Unlimited Dialing on Leads</li>
 
-								<li class="offer-list-none"><i class="fa fa-times-circle"></i> <del>27/7 Support</del> </li>
+								<li><i class="fa fa-check-circle"></i> 1 Industry Category</li>
 
-								<li class="offer-list-none"><i class="fa fa-times-circle"></i> <del>Free Cancelation</del> </li>
+								<li><i class="fa fa-check-circle"></i> Filtering on Lead Attributes</li>
 
-								<li class="offer-list-none"><i class="fa fa-times-circle"></i> <del>Basic support on Github</del> </li>
+								<li><i class="fa fa-check-circle"></i> Integrated dialing system</li>
 
-								<li class="offer-list-none"><i class="fa fa-times-circle"></i> <del>Help center access</del> </li>
+								<li><i class="fa fa-check-circle"></i> System support</li>
+
+								<li><i class="fa fa-check-circle"></i> Features First Access</li>
+
+								<li><i class="fa fa-check-circle"></i> Credit card billing</li>
 
 							</ul>
 
@@ -204,46 +221,53 @@
 
 				<div class="col-lg-4 col-md-6 price-item">
 
-					<div class="pricing-content">
+					<div id="team" class="pricing-content">
 
 						<div class="price-heading">
 
 							<div class="price-name">
 
-								<h3>Standard</h3>
+								<h3>Team Plan</h3>
 
-								<span class="price-small-text">$</span>
+								<h2 class="total-price"></h2>
+								<br>
+								<span class="price-small-text custom-text"></span>
+								<br>
+								<span class="price-small-text">50% billed up front</span>
 
-								<h2>50</h2>
+							</div>
 
-								<span class="price-small-text">/ per month</span>
-
+							<div class="price-description">
+								<p>Scaling and Striding to Steal Share</p>
 							</div>
 
 						</div>
 
-						<div class="price-btn"> <a href="#" class="default-btn">Get Started <span></span></a> </div>
+						<div class="price-btn"> <a href="#" class="default-btn">Buy Now <span></span></a> </div>
 
 						<div class="price-body">
 
 							<ul>
 
-								<li><i class="fa fa-check-circle"></i> Web Development</li>
+								<li><i class="fa fa-check-circle"></i> Free trial (50 calls or 5 days)</li>
 
-								<li><i class="fa fa-check-circle"></i> Personal Use</li>
+								<li><i class="fa fa-check-circle"></i> 5 to 49 Dialing Seats</li>
 
-								<li><i class="fa fa-check-circle"></i> Unlimited Projects</li>
+								<li><i class="fa fa-check-circle"></i> 1 Admin Seat</li>
 
-								<li><i class="fa fa-check-circle"></i> Project Management</li>
+								<li><i class="fa fa-check-circle"></i> Administrative Portal</li>
 
-								<li><i class="fa fa-check-circle"></i> 27/7 Support</li>
+								<li><i class="fa fa-check-circle"></i> Unlimited Dialing on Leads</li>
 
-								<li><i class="fa fa-check-circle"></i> Free Cancelation</li>
+								<li><i class="fa fa-check-circle"></i> 1 Industry Category</li>
 
-								<li class="offer-list-none"><i class="fa fa-times-circle"></i> <del>Basic support on Github</del> </li>
+								<li><i class="fa fa-check-circle"></i> Filtering on Lead Attributes</li>
 
-								<li class="offer-list-none"><i class="fa fa-times-circle"></i> <del>Help center access</del> </li>
+								<li><i class="fa fa-check-circle"></i> Integrated dialing system</li>
 
+								<li><i class="fa fa-check-circle"></i> System support</li>
+
+								<li><i class="fa fa-check-circle"></i> Features First Access</li>
 							</ul>
 
 						</div>
@@ -254,45 +278,51 @@
 
 				<div class="col-lg-4 col-md-6 price-item">
 
-					<div class="pricing-content">
+					<div id="enterprise" class="pricing-content">
 
 						<div class="price-heading">
 
 							<div class="price-name">
 
-								<h3>Premium</h3>
+								<h3>Enterprise Plan</h3>
 
-								<span class="price-small-text">$</span>
+								<h2 class="total-price"></h2>
+								<span class="price-small-text">Contact our sales team</span>
+								<br>
+								<span class="price-small-text">for a custom quote</span>
+							</div>
 
-								<h2>75</h2>
-
-								<span class="price-small-text">/ per month</span>
-
+							<div class="price-description">
+								<p>Big and Betting to be Better</p>
 							</div>
 
 						</div>
 
-						<div class="price-btn"> <a href="#" class="default-btn">Get Started <span></span></a> </div>
+						<div class="price-btn"> <a href="#" class="default-btn">Buy Now <span></span></a> </div>
 
 						<div class="price-body">
 
 							<ul>
 
-								<li><i class="fa fa-check-circle"></i> Web Development</li>
+								<li><i class="fa fa-check-circle"></i> Free trial (contact us)</li>
 
-								<li><i class="fa fa-check-circle"></i> Personal Use</li>
+								<li><i class="fa fa-check-circle"></i> 50 to 2,000 Dialing Seats</li>
 
-								<li><i class="fa fa-check-circle"></i> Unlimited Projects</li>
+								<li><i class="fa fa-check-circle"></i> 1 Admin Seat</li>
 
-								<li><i class="fa fa-check-circle"></i> Project Management</li>
+								<li><i class="fa fa-check-circle"></i> Administrative Portal</li>
 
-								<li><i class="fa fa-check-circle"></i> 27/7 Support</li>
+								<li><i class="fa fa-check-circle"></i> Unlimited Dialing on Leads</li>
 
-								<li><i class="fa fa-check-circle"></i> Free Cancelation</li>
+								<li><i class="fa fa-check-circle"></i> 1 Industry Category</li>
 
-								<li><i class="fa fa-check-circle"></i> Basic support on Github</li>
+								<li><i class="fa fa-check-circle"></i> Filtering on Lead Attributes</li>
 
-								<li><i class="fa fa-check-circle"></i> Help center access</li>
+								<li><i class="fa fa-check-circle"></i> Integrated dialing system</li>
+
+								<li><i class="fa fa-check-circle"></i> System support</li>
+
+								<li><i class="fa fa-check-circle"></i> Features First Access</li>
 
 							</ul>
 

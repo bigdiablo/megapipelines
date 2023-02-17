@@ -7650,3 +7650,112 @@ blockquote::after, .blockquote::after {
 	white-space: nowrap;
 	padding: 10px 20px;
 }
+
+.swith-price {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.control-price {
+	position: relative;
+	display: flex;
+	width: auto;
+	height: auto;
+	overflow: hidden;
+	margin-bottom: 40px;
+	border-radius: 30px;
+	background: #eee;
+}
+
+.control-price:after {
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 120px;
+	height: 100%;
+	background: #6b7fbb;
+	transition: all .3s ease;
+	border-radius: 30px;
+}
+
+.quarterly .control-price:after {
+	left: 50%;
+}
+
+.swith-price span {
+	display: flex;
+	justify-content: center;
+	cursor: pointer;
+	width: 120px;
+	padding: 10px 0;
+    font-weight: 700;
+    font-size: 17px;
+	z-index: 1;
+	transition: all .3s ease;
+}
+
+.quarterly .swith-price span:nth-child(1) {
+	color: inherit;
+}
+
+.quarterly .swith-price span:nth-child(2) {
+	color: #fff;
+}
+
+.swith-price span:nth-child(1) {
+	color: #fff;
+}
+
+#individual .total-price:after {
+	content: "$2,500.00";
+}
+
+.quarterly #individual .total-price:after {
+	content: "$2,375.00";
+}
+
+#individual .price-small-text:after {
+	content: "/ per Dialer per month";
+}
+
+.quarterly #individual .price-small-text:after {
+	content: "billed $7,125 up front";
+}
+
+#team .total-price:after {
+	content: "$2,425.00";
+}
+
+.quarterly #team .total-price:after {
+	content: "$2,183.00";
+}
+
+#team .custom-text:after {
+	content: "/ per Dialer (min 5 dialers)";
+}
+
+.quarterly #team .custom-text:after {
+	content: "5% discount";
+}
+
+#enterprise .total-price {
+    font-size: 30px;
+    line-height: 64px;
+    display: flex;
+    color: #999;
+    justify-content: center;
+}
+
+#enterprise .total-price:after {
+	content: "Contact Us";
+}
+
+.quarterly #enterprise .total-price:after {
+	content: "Contact Us";
+}
+
+.formula-result {
+	margin: 0;
+}
