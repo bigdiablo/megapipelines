@@ -4424,7 +4424,7 @@ p:last-child {
 
     text-align: left;
 
-    margin: 30px 0;
+    margin-bottom: 30px;
 
 }
 
@@ -5184,21 +5184,6 @@ p:last-child {
 
 }
 
-.contact-information-box-3 {
-
-    background: #fff;
-
-    padding: 25px 20px;
-
-    border-radius: 5px;
-
-    border-bottom: 2px solid #6b7fbb;
-
-	-webkit-box-shadow: 0 3px 15px rgba(0, 0, 0, 0.05), 0 5px 15px rgba(0, 0, 0, 0.03);
-
-	box-shadow: 0 3px 15px rgba(0, 0, 0, 0.05), 0 5px 15px rgba(0, 0, 0, 0.03);
-
-}
 
 .contact-information-box-3 .single-contact-info-box {
 
@@ -7635,4 +7620,33 @@ blockquote::after, .blockquote::after {
 
 	margin-left: 0;
 
+}
+
+
+#support {
+	border-collapse: collapse;
+	width: 100%;
+	margin: 15px 0;
+}
+
+#support td {
+	border: 1px solid #ddd;
+	padding: 8px;
+}
+
+#support tr:nth-child(even){
+	background-color: #f2f2f2;
+}
+
+.dialer-agent {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 60px;
+	height: 60px;
+}
+
+#support .default-btn {
+	white-space: nowrap;
+	padding: 10px 20px;
 }
