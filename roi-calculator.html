@@ -167,8 +167,8 @@
 								<p>Current Deals Closed Per Month</p>
 							</div>
 							<div class="col-lg-4">
-								<select class="form-control">
-									<option value="1">1</option>
+								<select id="field_deals" class="form-control formula-input" onchange="first_formula()">
+									<option value="1" selected>1</option>
 									<option value="2">2</option>
 									<option value="3">3</option>
 									<option value="4">4</option>
@@ -196,7 +196,7 @@
 								<p>Industry You Work</p>
 							</div>
 							<div class="col-lg-4">
-								<select class="form-control">
+								<select class="form-control formula-input">
 									<option value="mortgage">Mortgage</option>
 									<option value="solar">Solar</option>
 									<option value="insurance">Insurance</option>
@@ -210,7 +210,7 @@
 								<p>Your Average Loan Size (if Mortgage)</p>
 							</div>
 							<div class="col-lg-4">
-								<input class="form-control">
+								<input id="field_loan_size" class="form-control formula-input" value="0" oninput="first_formula()">
 							</div>
 						</div>
 						<div class="row align-items-center">
@@ -218,13 +218,13 @@
 								<p>Bps Earned Per Loan (if Mortgage)</p>
 							</div>
 							<div class="col-lg-4">
-								<input class="form-control">
+								<input id="field_bps" class="form-control formula-input" value="0" oninput="first_formula()">
 							</div>
 						</div>
 						<div class="row align-items-center">
 							<div class="col-lg-12">
 								<p>Current Commission before Mega Pipelines</p>
-								<h4>$5,000.00</h4>
+								<h4 id="first_result"></h4>
 							</div>
 						</div>
 					</div>
@@ -237,7 +237,7 @@
 									<p>Leads You'll Call Per Day</p>
 								</div>
 								<div class="col-lg-4">
-									<input class="form-control">
+									<input class="form-control formula-input">
 								</div>
 							</div>
 							<div class="row align-items-center">
@@ -253,7 +253,7 @@
 									<p>Application Rate of Leads Called</p>
 								</div>
 								<div class="col-lg-4">
-									<input class="form-control">
+									<input class="form-control formula-input">
 								</div>
 							</div>
 							<div class="row align-items-center">
@@ -269,7 +269,7 @@
 									<p>Application Close Rate</p>
 								</div>
 								<div class="col-lg-4">
-									<input class="form-control">
+									<input class="form-control formula-input">
 								</div>
 							</div>
 							<div class="row align-items-center">
@@ -285,15 +285,7 @@
 									<p>Hours Calling Support Calls / Day</p>
 								</div>
 								<div class="col-lg-4">
-									<input class="form-control">
-								</div>
-							</div>
-							<div class="row align-items-center">
-								<div class="col-lg-8">
-									<p>Total Monthly Calling Hours</p>
-								</div>
-								<div class="col-lg-4">
-									<select class="form-control">
+									<select class="form-control formula-input">
 										<option value="1">1</option>
 										<option value="2">2</option>
 										<option value="3">3</option>
@@ -307,10 +299,18 @@
 							</div>
 							<div class="row align-items-center">
 								<div class="col-lg-8">
+									<p>Total Monthly Calling Hours</p>
+								</div>
+								<div class="col-lg-4">
+									<input class="form-control">
+								</div>
+							</div>
+							<div class="row align-items-center">
+								<div class="col-lg-8">
 									<p>Use a 3rd Party Dialer</p>
 								</div>
 								<div class="col-lg-4">
-									<select class="form-control">
+									<select class="form-control formula-input">
 										<option value="yes">Yes</option>
 										<option value="no">No</option>
 									</select>
@@ -321,7 +321,7 @@
 									<p>Hourly Caller Cost</p>
 								</div>
 								<div class="col-lg-4">
-									<select class="form-control">
+									<select class="form-control formula-input">
 										<option value="5.00">$5.00</option>
 										<option value="5.25">$5.25</option>
 										<option value="5.50">$5.50</option>
@@ -349,7 +349,16 @@
 									<p>Number of Callers dialing for you</p>
 								</div>
 								<div class="col-lg-4">
-									<input class="form-control">
+									<select class="form-control formula-input">
+										<option value="1">1</option>
+										<option value="2">2</option>
+										<option value="3">3</option>
+										<option value="4">4</option>
+										<option value="5">5</option>
+										<option value="6">6</option>
+										<option value="7">7</option>
+										<option value="8">8</option>
+									</select>
 								</div>
 							</div>
 							<div class="row align-items-center">
@@ -357,7 +366,7 @@
 									<p>Mega Pipelines Account Type</p>
 								</div>
 								<div class="col-lg-4">
-									<select class="form-control">
+									<select class="form-control formula-input">
 										<option value="individual">Individual</option>
 										<option value="team">Team</option>
 									</select>
@@ -368,7 +377,7 @@
 									<p>Mega Pipelines Payment Plan</p>
 								</div>
 								<div class="col-lg-4">
-									<select class="form-control">
+									<select class="form-control formula-input">
 										<option value="month">Monthly</option>
 										<option value="quart">Quarterly</option>
 									</select>
@@ -401,7 +410,7 @@
 									<p>Self Generation Commission Rate</p>
 								</div>
 								<div class="col-lg-4">
-									<select class="form-control">
+									<select class="form-control formula-input">
 										<option value="yes">Yes</option>
 										<option value="no">No</option>
 									</select>
@@ -412,7 +421,7 @@
 									<p>Self Generation bps rate</p>
 								</div>
 								<div class="col-lg-4">
-									<input class="form-control">
+									<input class="form-control formula-input">
 								</div>
 							</div>
 						</div>
@@ -599,4 +608,5 @@
 <script src="assets/js/owl.carousel.min.js"></script>
 <script src="assets/js/wow.min.js"></script>
 <script src="assets/js/main.js"></script>
+<script src="assets/js/roi-calculator.js"></script>
 </html>

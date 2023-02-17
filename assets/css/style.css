@@ -7759,3 +7759,11 @@ blockquote::after, .blockquote::after {
 .formula-result {
 	margin: 0;
 }
+
+.formula-input {
+	background: rgba(173,216,230,0.4);
+}
+
+.formula-input:focus {
+	background: rgba(173,216,230,0.4);
+}
