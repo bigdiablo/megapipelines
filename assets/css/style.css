@@ -7787,3 +7787,26 @@ blockquote::after, .blockquote::after {
 	margin-top: 0 !important;
 	margin-bottom: 0 !important;
 }
+
+.space-bottom {
+	margin-bottom: 40px;
+}
+
+.space-top {
+	margin-top: 40px;
+}
+
+.tab-contet {
+	display: none;
+}
+
+.tab-list li {
+	-ms-flex: 0 0 100% !important;
+    flex: 0 0 100% !important;
+    max-width: 100% !important;
+    margin-top: 25px;
+}
+
+.tab-list li:first-child {
+	margin-top: 0 !important;
+}
