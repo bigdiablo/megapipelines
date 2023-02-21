@@ -3972,7 +3972,7 @@ p:last-child {
 
 	border-radius: 3px;
 
-    box-shadow: 0px 10px 60px rgb(0, 0, 0, 0.2);
+    //box-shadow: 0px 10px 60px rgb(0, 0, 0, 0.2);
 
 }
 
@@ -3996,7 +3996,7 @@ p:last-child {
 
     z-index: -1;
 
-    background: url(../img/dot.svg);
+   // background: url(../img/dot.svg);
 
     background-repeat: repeat;
 
@@ -5158,8 +5158,6 @@ p:last-child {
     font-weight: 600;
 
     border-radius: 5px;
-
-    text-transform: capitalize;
 
     border-left: 2px solid #b4b7bd;
 
@@ -7809,4 +7807,17 @@ blockquote::after, .blockquote::after {
 
 .tab-list li:first-child {
 	margin-top: 0 !important;
+}
+
+.verification-images img {
+	height: 280px;
+	margin: 40px 0;
+}
+
+.verification-images .justify-content-center {
+	display: flex;
+}
+
+#success {
+	display: none;
 }

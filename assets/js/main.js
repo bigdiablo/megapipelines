@@ -14,21 +14,6 @@ function price() {
 		var wind = $(window);
 
 
-
-		// Var Background image
-
-		var pageSection = $(".bg-img, section");
-
-		pageSection.each(function (indx) {
-
-			if ($(this).attr("data-background")) {
-
-				$(this).css("background-image", "url(" + $(this).data("background") + ")");
-
-			}
-
-		});
-
 	
 
         // Header Sticky
