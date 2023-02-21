@@ -16,7 +16,9 @@
     <meta property="og:title" content="ROI Calculator">
     <meta property="og:description" content="Mega Pipelines is the best sales resource, providing unlimited sales leads for mortgage, solar, insurance and home services.  Why pay per opportunity when you can have unlimited sales at your fingertips.">
     <meta property="og:image" content="">
-	<link href="https://fonts.googleapis.com/css2?family=Cabin:wght@400;500;600;700&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Cabin:wght@400;500;600;700&display=swap" rel="stylesheet">	
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.5/angular.min.js"></script>
+	<script src="mpp-controller.js"></script>
 	<link rel="stylesheet" href="assets/css/bootstrap.min.css">
 	<link rel="stylesheet" href="assets/css/animate.min.css">
 	<link rel="stylesheet" href="assets/css/pe-icon-7-stroke.css">
@@ -35,7 +37,7 @@
 		gtag('config', 'G-WY7HSPN787');
 	</script>
 </head>
-<body>
+<body ng-app="MPPApp" ng-controller="MPPContent">
 	<div class="preloader">
 		<div class="d-table">
 			<div class="d-table-cell">
@@ -100,6 +102,9 @@
  									<li class="nav-item">
 										<a href="integrated-dialer.html" class="nav-link">Integrated Dialer</a>
 									</li>
+ 									<li class="nav-item">
+										<a href="verification-process.html" class="nav-link">Lead Verification</a>
+									</li>
 								</ul>
 							</li>
 							<li class="nav-item">
@@ -138,25 +143,17 @@
 			<div class="row">
 
 				<div class="col-lg-6 col-md-12">
-					<div>
-						<h2>ROI Calculator</h2>
-						<p>We came up with this ROI Calculator to help you visualize the impact of implementing a program with Mega Pipelines</p>
-						<p>Enter in the fields in the blue boxes below what your monthly return on investment will be by using.</p>
-						<p>Results vary based on your performance, and subscription costs are subject to change according to the <a target="_blank" href="terms-conditions.html">Terms and Conditions</a>.</p>
-					</div>
-
-				</div>
-
-				<div class="col-lg-6 col-md-12">
 
 					<div>
-						<h5>Your Current Commission</h5>
-						<div class="row align-items-center">
+					
+						<h2 class="text-info">ROI Calculator</h2>
+						<h5 class="border-bottom border-dark text-primary mt-4">Your Current Commission</h5>
+						<div class="row align-items-center" data-toggle="tooltip" data-placement="top" title="Enter your typical average funded loan month.">
 							<div class="col-lg-8">
 								<p>Current Deals Closed Per Month</p>
 							</div>
 							<div class="col-lg-4">
-								<select id="field_deals" class="form-control formula-input" onchange="first_formula()">
+								<select ng-model="cal.field_deals" id="field_deals" class="form-control formula-input">
 									<option value="1" selected>1</option>
 									<option value="2">2</option>
 									<option value="3">3</option>
@@ -185,7 +182,7 @@
 								<p>Industry You Work</p>
 							</div>
 							<div class="col-lg-4">
-								<select class="form-control formula-input">
+								<select ng-model="cal.industry" class="form-control formula-input">
 									<option value="mortgage">Mortgage</option>
 									<option value="solar">Solar</option>
 									<option value="insurance">Insurance</option>
@@ -194,39 +191,48 @@
 								</select>
 							</div>
 						</div>
-						<div class="row align-items-center">
+						<div class="row align-items-center" data-toggle="tooltip" data-placement="top" title="Take your total amount of loans funded last month divided by number of loans.">
 							<div class="col-lg-8">
 								<p>Your Average Loan Size (if Mortgage)</p>
 							</div>
-							<div class="col-lg-4">
-								<input id="field_loan_size" class="form-control formula-input" value="0" oninput="first_formula()">
+							<div class="input-group col-lg-4">
+								<div class="input-group-append">
+									<span class="input-group-text">$</span>
+								</div>
+								<input ng-model="cal.field_loan_size" type="number" min=0 id="field_loan_size" class="form-control formula-input" value="0">
+							</div>
+						</div>
+						<div class="row align-items-center" data-toggle="tooltip" data-placement="top" title="Take your last commission check divided by the total dollar amount of loans closed.">
+							<div class="col-lg-8">
+								<p>Bps Earned Per Loan (if Mortgage)</p>
+							</div>
+							<div class="input-group col-lg-4">
+								<input ng-model="cal.field_bps" type="number" min="0" max="100" id="field_bps" class="form-control formula-input" value="0">
+									<div class="input-group-append">
+										<span class="input-group-text">%</span>
+								    </div>
 							</div>
 						</div>
 						<div class="row align-items-center">
 							<div class="col-lg-8">
-								<p>Bps Earned Per Loan (if Mortgage)</p>
-							</div>
-							<div class="col-lg-4">
-								<input id="field_bps" class="form-control formula-input" value="0" oninput="first_formula()">
-							</div>
-						</div>
-						<div class="row align-items-center">
-							<div class="col-lg-12">
 								<p>Average Commission Earned Per Closed Deal</p>
-								<h4 id="first_result"></h4>
+							</div>
+							<div class="col-lg-4 text-right">
+								<h4 ng-show="avgCommision()" id="first_result">${{avgCommision()|number:2}}</h4>
 							</div>
 						</div>
 					</div>
 
 					<div>
-						<h5>Mega Pipeline Stats You Expect</h5>
+						<h5 class="border-bottom border-dark text-primary mt-4">Mega Pipeline Stats You Expect</h5>
 						<div>
-							<div class="row align-items-center">
+							<div class="row align-items-center" data-toggle="tooltip" data-placement="top" title="Usually each Dialer can call between 80 and 200 leads per day.">
 								<div class="col-lg-8">
-									<p>Leads You'll Call Per Day</p>
+									<p>Leads You'll Call Per Day <span ng-show="cal.party_dialer=='yes'&&!cal.leads_per_day" class="text-danger">(* required)</span></p>
 								</div>
 								<div class="col-lg-4">
-									<input class="form-control formula-input">
+									<input ng-model="cal.leads_per_day" class="form-control formula-input">
+									
 								</div>
 							</div>
 							<div class="row align-items-center">
@@ -234,15 +240,18 @@
 									<p>Monthly Leads Called</p>
 								</div>
 								<div class="col-lg-4">
-									<input class="form-control">
+									<span class="form-control">{{monthlyLeadsCalled() | number:0}}</span>
 								</div>
 							</div>
-							<div class="row align-items-center">
+							<div class="row align-items-center" data-toggle="tooltip" data-placement="top" title="Depending on how you filter your leads, and your script and work processes, you can experience a wide range of performance from as high as 10% to as low as 0.01%.">
 								<div class="col-lg-8">
 									<p>Application Rate of Leads Called</p>
 								</div>
-								<div class="col-lg-4">
-									<input class="form-control formula-input">
+								<div class="input-group col-lg-4">
+									<input ng-model="cal.application_rate_leads_called" type="number" min="0" max="100" class="form-control formula-input">
+									<div class="input-group-append">
+										<span class="input-group-text">%</span>
+								    </div>
 								</div>
 							</div>
 							<div class="row align-items-center">
@@ -250,15 +259,18 @@
 									<p># of Monthly Applications</p>
 								</div>
 								<div class="col-lg-4">
-									<input class="form-control">
+									<span class="form-control">{{MonthlyApplication() | number:0}}</span>
 								</div>
 							</div>
 							<div class="row align-items-center">
 								<div class="col-lg-8">
 									<p>Application Close Rate</p>
 								</div>
-								<div class="col-lg-4">
-									<input class="form-control formula-input">
+								<div class="input-group col-lg-4">
+									<input ng-model="cal.application_close_rate" type="number" min="0" max="100" class="form-control formula-input">
+									<div class="input-group-append">
+										<span class="input-group-text">%</span>
+								    </div>
 								</div>
 							</div>
 							<div class="row align-items-center">
@@ -266,15 +278,15 @@
 									<p>Incremental Loans per Month</p>
 								</div>
 								<div class="col-lg-4">
-									<input class="form-control">
+									<span class="form-control">{{IncrementalLoansMonth()}}</span>
 								</div>
 							</div>
-							<div class="row align-items-center">
+							<div class="row align-items-center" data-toggle="tooltip" data-placement="top" title="To get someone to work for more than 8 hours a day is not likely.  Most Dialers work from 3 to 8 hours per day.">
 								<div class="col-lg-8">
 									<p>Hours Calling Support Calls / Day</p>
 								</div>
 								<div class="col-lg-4">
-									<select class="form-control formula-input">
+									<select ng-model="cal.hours_calling_day" class="form-control formula-input">
 										<option value="1">1</option>
 										<option value="2">2</option>
 										<option value="3">3</option>
@@ -291,26 +303,26 @@
 									<p>Total Monthly Calling Hours</p>
 								</div>
 								<div class="col-lg-4">
-									<input class="form-control">
+									<span class="form-control">{{TotalMonthlyCallingHours()}}</span>
 								</div>
 							</div>
-							<div class="row align-items-center">
+							<div class="row align-items-center" data-toggle="tooltip" data-placement="top" title="Yes or No.  If No, don't require Leads You'll Call Per Day.  If Yes, require a dollar value for Leads You'll Call Per Day.">
 								<div class="col-lg-8">
 									<p>Use a 3rd Party Dialer</p>
 								</div>
 								<div class="col-lg-4">
-									<select class="form-control formula-input">
+									<select ng-model="cal.party_dialer" class="form-control formula-input" ng-change="changePartyDialer()">
 										<option value="yes">Yes</option>
 										<option value="no">No</option>
 									</select>
 								</div>
 							</div>
-							<div class="row align-items-center">
+							<div class="row align-items-center" ng-show="cal.party_dialer!='no'" data-toggle="tooltip" data-placement="top" title="Typical range of a person doing Dialing on your behalf is as low as $5.00 per hour and as high as $11.00 per hour.">
 								<div class="col-lg-8">
 									<p>Hourly Caller Cost</p>
 								</div>
 								<div class="col-lg-4">
-									<select class="form-control formula-input">
+									<select ng-model="cal.hour_caller_cost" class="form-control formula-input">
 										<option value="5.00">$5.00</option>
 										<option value="5.25">$5.25</option>
 										<option value="5.50">$5.50</option>
@@ -333,12 +345,12 @@
 									</select>
 								</div>
 							</div>
-							<div class="row align-items-center">
+							<div class="row align-items-center" ng-show="cal.party_dialer!='no'" data-toggle="tooltip" data-placement="top" title="It is suggested that you start with 1 person dialing (if anyone) and then add as you find success.">
 								<div class="col-lg-8">
 									<p>Number of Callers dialing for you</p>
 								</div>
 								<div class="col-lg-4">
-									<select class="form-control formula-input">
+									<select ng-model="cal.no_callers_dialing" class="form-control formula-input">
 										<option value="1">1</option>
 										<option value="2">2</option>
 										<option value="3">3</option>
@@ -350,23 +362,23 @@
 									</select>
 								</div>
 							</div>
-							<div class="row align-items-center">
+							<div class="row align-items-center" data-toggle="tooltip" data-placement="top" title="Use this to drive pricing in Application Close Rate">
 								<div class="col-lg-8">
 									<p>Mega Pipelines Account Type</p>
 								</div>
 								<div class="col-lg-4">
-									<select class="form-control formula-input">
+									<select ng-model="cal.account_type" class="form-control formula-input">
 										<option value="individual">Individual</option>
 										<option value="team">Team</option>
 									</select>
 								</div>
 							</div>
-							<div class="row align-items-center">
+							<div class="row align-items-center" data-toggle="tooltip" data-placement="top" title="Use this to drive Application Close Rate pricing.">
 								<div class="col-lg-8">
 									<p>Mega Pipelines Payment Plan</p>
 								</div>
 								<div class="col-lg-4">
-									<select class="form-control formula-input">
+									<select ng-model="cal.payment_plan" class="form-control formula-input">
 										<option value="month">Monthly</option>
 										<option value="quart">Quarterly</option>
 									</select>
@@ -376,75 +388,95 @@
 								<div class="col-lg-8">
 									<p>Total Calling Cost</p>
 								</div>
-								<div class="col-lg-4">
-									<input class="form-control">
+								<div ng-show="totalCallingCost()" class="col-lg-4 text-right">
+									${{totalCallingCost()|number:2}}
 								</div>
 							</div>
 							<div class="row align-items-center">
 								<div class="col-lg-8">
 									<p>Mega Pipelines Subscription Cost</p>
 								</div>
-								<div class="col-lg-4">
-									<input class="form-control">
+								<div ng-show="mplcost()" class="col-lg-4 text-right">
+									${{mplcost()|number:2}}
 								</div>
 							</div>
-							<div class="row align-items-center">
-								<div class="col-lg-12">
+							<div class="row align-items-center border-top border-dark">
+								<div class="col-lg-8">
 									<h4>Total Incremental Cost</h4>
-									<h4>$10,260</h4>
+								</div>
+								<div ng-show="totalIncrementalCost()" class="col-lg-4 text-right">
+									<h4 ng-show="totalIncrementalCost()">${{totalIncrementalCost()|number:2}}</h4>
 								</div>
 							</div>
-							<div class="row align-items-center">
+							<div class="row align-items-center" data-toggle="tooltip" data-placement="top" title="Yes or No Selection.  If Yes is chosen, require a Self Generation bps rate entered below.">
 								<div class="col-lg-8">
 									<p>Self Generation Commission Rate</p>
 								</div>
 								<div class="col-lg-4">
-									<select class="form-control formula-input">
+									<select ng-model="cal.self_generation_comission_rate" class="form-control formula-input">
 										<option value="yes">Yes</option>
 										<option value="no">No</option>
 									</select>
 								</div>
 							</div>
-							<div class="row align-items-center">
+							<div ng-show="cal.self_generation_comission_rate!='no'" class="row align-items-center" data-toggle="tooltip" data-placement="top" title="Only applies if you earn a separate commission rate for self-generated business, which Mega Pipelines would be.">
 								<div class="col-lg-8">
 									<p>Self Generation bps rate</p>
 								</div>
-								<div class="col-lg-4">
-									<input class="form-control formula-input">
+								<div class="input-group col-lg-4">
+									<input ng-model="cal.self_generation_bps_rate" type="number" min="0" max="100" class="form-control formula-input">
+									<div class="input-group-append">
+										<span class="input-group-text">%</span>
+									</div>
 								</div>
 							</div>
 						</div>
 					</div>
 
 					<div>
-						<h5>Your New Commission Results</h5>
+						<h5 class="border-bottom border-dark text-primary mt-4">Your New Commission Results</h5>
 						<div>
 							<div class="row align-items-center">
 								<div class="col-lg-8">
 									<p>Additional Commission Profited</p>
 								</div>
-								<div class="col-lg-4">
-									<h6 class="formula-result">$5,000.00</h6>
+								<div class="col-lg-4 text-right">
+									<h6 class="formula-result" ng-show="aditionalCommissionProfited()">${{aditionalCommissionProfited() | number:2}}</h6>
 								</div>
 							</div>
 							<div class="row align-items-center">
 								<div class="col-lg-8">
 									<p>Monthly Return on Investment</p>
 								</div>
-								<div class="col-lg-4">
-									<h6 class="formula-result">$5,000.00</h6>
+								<div class="col-lg-4 text-right">
+									<h6 class="formula-result" ng-show="montlyReturnInvestment()">{{montlyReturnInvestment() | number:0}}%</h6>
 								</div>
 							</div>
 							<div class="row align-items-center">
-								<div class="col-lg-12">
+								<div class="col-lg-6">
 									<p>New Commission after Mega Pipelines</p>
-									<h4>$5,000.00</h4>
+								</div>
+								<div class="col-lg-6">
+									<h4 class="text-right" ng-show="newCommissionRate()">${{newCommissionRate() | number:2}}</h4>
+								</div>
+							</div>
+							<div class="row align-items-center">
+								<div class="col-lg-6">
 									<p>Ready to make your sales pipeline Mega?</p>
-									<a href="" type="submit" class="default-btn">Try It Free <span></span></a>
+									<a href="https://account.megapipelines.com/#/register?program_id=14&trial_version=1" type="submit" class="default-btn">Try It Free <span></span></a>
 								</div>
 							</div>
 						</div>
 						
+					</div>
+
+				</div>
+
+				<div class="col-lg-6 col-md-12">
+					<div>
+						<p>We came up with this ROI Calculator to help you visualize the impact of implementing a program with Mega Pipelines</p>
+						<p>Enter in the fields in the blue boxes below what your monthly return on investment will be by using.</p>
+						<p>Results vary based on your performance, and subscription costs are subject to change according to the <a target="_blank" href="terms-conditions.html">Terms and Conditions</a>.</p>
 					</div>
 
 				</div>
@@ -597,5 +629,4 @@
 <script src="assets/js/owl.carousel.min.js"></script>
 <script src="assets/js/wow.min.js"></script>
 <script src="assets/js/main.js"></script>
-<script src="assets/js/roi-calculator.js"></script>
 </html>
