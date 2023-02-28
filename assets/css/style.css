@@ -7775,6 +7775,15 @@ blockquote::after, .blockquote::after {
 
 .formula-input {
 	background: rgba(173,216,230,0.4);
+	margin-bottom: 15px;
+}
+.input-group-append,
+.form-control {
+	margin-bottom: 15px;
+}
+
+.input-group-append ~ .formula-input {
+	margin-bottom: 15px;
 }
 
 .formula-input:focus {
@@ -7820,4 +7829,8 @@ blockquote::after, .blockquote::after {
 
 #success {
 	display: none;
+}
+
+.about-area .about-image img {
+	height: 340px;
 }
