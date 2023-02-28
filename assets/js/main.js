@@ -1,3 +1,21 @@
+var generaltime = new Date();
+document.getElementById('general').value = generaltime;
+
+function news() {
+    $.ajax({
+        url:"https://api.apispreadsheets.com/data/q8DA66Y3vREh2vpn/",
+        type:"post",
+        data:$("#newsletter").serializeArray(),
+        success: function(){
+            $("#newsletter").css("display","none");
+            $("#newsletter-message").css("display","block");
+        },
+        error: function(){
+            alert("There was an error :(")
+        }
+    });
+}
+
 function price() {
     var dollar = document.getElementById("price");
     dollar.classList.toggle("quarterly");

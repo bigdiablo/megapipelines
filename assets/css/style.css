@@ -7834,3 +7834,8 @@ blockquote::after, .blockquote::after {
 .about-area .about-image img {
 	height: 340px;
 }
+
+#newsletter-message {
+	display: none;
+	color: #fff;
+}

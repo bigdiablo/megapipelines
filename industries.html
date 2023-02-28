@@ -449,9 +449,11 @@
 							<span><strong>Address:</strong> 360 Central Avenue First Central Tower, Suite 800, St. Petersburg, FL 33701, United States</span>
 
 						</div>
-						<form class="newsletter-form">
-							<input type="email" class="input-newsletter" placeholder="Enter your email" name="EMAIL" required autocomplete="off">
-							<button class="default-btn" type="submit">Subscribe <span></span></button>
+						<span id="newsletter-message">You have succesfully subscribed!</span>
+						<form id="newsletter" class="newsletter-form" method="post" action="javascript:;" onsubmit="news(this)">
+							<input type="hidden" id="general" name="timestamp">
+							<input type="email" name="email" class="input-newsletter" placeholder="Enter your email" required autocomplete="off">
+							<button type="submit" class="default-btn">Subscribe</button>
 						</form>
 					</div>
 				</div>
