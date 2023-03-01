@@ -3676,10 +3676,9 @@ p:last-child {
 
 	z-index: 1;
 
-	background: #303171;
+	background: #fff;
 
-	height: 340px;
-
+	margin-top: 120px;
 }
 
 
@@ -3687,8 +3686,6 @@ p:last-child {
 .page-title-content {
 
 	text-align: center;
-
-	margin-top: 45px;
 
 }
 
@@ -3699,7 +3696,7 @@ p:last-child {
 	align-items: center;
 	justify-content: center;
 	margin-bottom: 0;
-	color: #ffffff;
+	color: #303171;
 	font-size: 42px;
 	font-weight: 600;
 
@@ -3732,7 +3729,7 @@ p:last-child {
 
 .page-title-content ul li {
 
-	color: #ffffff;
+	color: #303171;
 
 	display: inline-block;
 
@@ -3754,7 +3751,7 @@ p:last-child {
 
 	display: inline-block;
 
-	color: #ffffff;
+	color: #303171;
 
 	-webkit-transition: 0.4s;
 
@@ -3766,7 +3763,7 @@ p:last-child {
 
 .page-title-content ul li a:hover {
 
-	color: #6b7fbb;
+	color: #303171;
 
 }
 
@@ -7730,7 +7727,7 @@ blockquote::after, .blockquote::after {
 }
 
 .quarterly #team .total-price:after {
-	content: "$2,183";
+	content: "$2,200";
 }
 
 #team .custom-text:after {

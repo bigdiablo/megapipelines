@@ -193,11 +193,17 @@
 		margin-bottom: 50px;
 	}
 	.page-title-area {
-		height: 300px;
+		height: 200px;
+		margin-top: 0;
 	}
 
 	.page-title-content h2 {
 		font-size: 35px;
+	}
+
+	.page-title-content h2:before {
+		height: 60px;
+		width: 60px;
 	}
 
 	.page-title-content ul {
@@ -622,6 +628,7 @@
 	}
 	.page-title-area {
 		height: 300px;
+		margin-top: 0;
 	}
 
 	.page-title-content h2 {
