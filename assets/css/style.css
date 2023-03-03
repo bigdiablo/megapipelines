@@ -1848,7 +1848,7 @@ p:last-child {
 
 	width: 100%;
 
-	height: auto;
+	height: 120px;
 
 }
 
@@ -1923,14 +1923,6 @@ p:last-child {
 
 @media only screen and (max-width: 991px) {
 
-	.navbar-area {
-
-		padding-top: 20px;
-
-		padding-bottom: 20px;
-
-	}
-
 
 
 	.navbar-area.is-sticky {
@@ -1940,10 +1932,6 @@ p:last-child {
 		-webkit-box-shadow: 0 7px 13px 0 rgba(0, 0, 0, 0.1);
 
 		box-shadow: 0 7px 13px 0 rgba(0, 0, 0, 0.1);
-
-		padding-top: 20px;
-
-		padding-bottom: 20px;
 
 	}
 
@@ -7829,10 +7817,30 @@ blockquote::after, .blockquote::after {
 }
 
 .about-area .about-image img {
-	height: 340px;
+	height: 360px;
 }
 
 #newsletter-message {
 	display: none;
 	color: #fff;
+}
+
+.hover-image {
+
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+
+	text-align: center;
+
+}
+
+.hover-image img {
+	height: 300px;
+}
+
+.overview-image video {
+	width: 100%;
+	height: auto;
 }

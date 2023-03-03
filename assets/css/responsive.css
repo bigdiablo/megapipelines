@@ -6,6 +6,12 @@
     File Description : Main Responsive file of the template
 *****************************************************************/
 
+.meanmenu-reveal {
+	top: 0;
+	bottom: 0;
+	margin: auto 0;
+}
+
 @media only screen and (max-width: 767px) {
 
 	.section-title h2 {
@@ -26,8 +32,7 @@
 	}
 
 	.navbar-area {
-		-webkit-box-shadow: 0 5px 40px 0 rgba(0, 0, 0, 0.11);
-		box-shadow: 0 5px 40px 0 rgba(0, 0, 0, 0.11);
+		height: 100px;
 	}
 
 	.navbar-area.is-sticky .techmax-responsive-nav .mean-container a.meanmenu-reveal {
@@ -40,12 +45,11 @@
 	}
 
 	.mean-container .mean-nav {
-		margin-top: 43px;
+		margin-top: 100px;
 	}
 
 	.techmax-responsive-nav .mean-container a.meanmenu-reveal {
 		padding-top: 8px;
-		color: #fff;
 	}
 
 	.techmax-responsive-nav.index-navber-responsive .mean-container a.meanmenu-reveal span {
@@ -193,8 +197,8 @@
 		margin-bottom: 50px;
 	}
 	.page-title-area {
-		height: 200px;
-		margin-top: 0;
+		height: auto;
+		margin-top: 100px;
 	}
 
 	.page-title-content h2 {
@@ -483,8 +487,7 @@
 	}
 
 	.navbar-area {
-		-webkit-box-shadow: 0 5px 40px 0 rgba(0, 0, 0, 0.11);
-		box-shadow: 0 5px 40px 0 rgba(0, 0, 0, 0.11);
+		height: 100px;
 	}
 
 	.navbar-area.is-sticky .techmax-responsive-nav .mean-container a.meanmenu-reveal {
@@ -497,12 +500,11 @@
 	}
 
 	.mean-container .mean-nav {
-		margin-top: 43px;
+		margin-top: 100px;
 	}
 
 	.techmax-responsive-nav .mean-container a.meanmenu-reveal {
 		padding-top: 6px;
-		color: #fff;
 	}
 
 	.techmax-responsive-nav.index-navber-responsive .mean-container a.meanmenu-reveal span {
@@ -627,8 +629,8 @@
 		margin-bottom: 50px;
 	}
 	.page-title-area {
-		height: 300px;
-		margin-top: 0;
+		height: auto;
+		margin-top: 100px;
 	}
 
 	.page-title-content h2 {
