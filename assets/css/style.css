@@ -1955,8 +1955,31 @@ p:last-child {
 
 	.techmax-responsive-nav {
 
-		display: block;
+display: flex;
 
+align-items: center;
+
+height: 100%;
+
+	}
+
+	.features-mobile {
+		margin-bottom: 30px !important;
+	}
+
+	.features-mobile li {
+		max-width: 50% !important;
+	}
+
+	.features-mobile li span {
+		display: flex !important;
+		align-items: center;
+		height: 100%;
+		line-height: 1;
+	}
+
+	.hover-image img {
+		height: 200px !important;
 	}
 
 
