@@ -7634,7 +7634,8 @@ blockquote::after, .blockquote::after {
 	margin: 15px 0;
 }
 
-#support td {
+#support td,
+#support th {
 	border: 1px solid #ddd;
 	padding: 8px;
 }
@@ -7866,4 +7867,8 @@ blockquote::after, .blockquote::after {
 .overview-image video {
 	width: 100%;
 	height: auto;
+}
+
+.new-btn {
+	margin-top: 20px;
 }
