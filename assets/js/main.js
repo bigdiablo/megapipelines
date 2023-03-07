@@ -41,12 +41,14 @@ function price() {
             if ($(this).scrollTop() > 120){  
 
                 $('.navbar-area').addClass("is-sticky");
+                $('.roi-results').addClass("is-sticky");
 
             }
 
             else{
 
                 $('.navbar-area').removeClass("is-sticky");
+                $('.roi-results').removeClass("is-sticky");
 
             }
 
