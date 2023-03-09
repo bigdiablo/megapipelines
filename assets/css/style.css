@@ -285,182 +285,62 @@ p:last-child {
 
 
 .default-btn {
-
-	border: none;
-
 	position: relative;
-
 	display: inline-block;
-
 	text-align: center;
-
 	overflow: hidden;
-
 	z-index: 1;
-
 	color: #ffffff;
-
-	background-color: #6b7fbb;
-
-	-webkit-transition: 0.4s;
-
-	transition: 0.4s;
-
+	background: #303171;
 	border-radius: 30px;
-
-	font-weight: 600;
-
+	font-weight: 700;
 	font-size: 15px;
-
 	padding-left: 35px;
-
 	padding-right: 35px;
-
 	padding-top: 12px;
-
 	padding-bottom: 12px;
-
+	transition: all .3s ease;
+	border: 2px solid #303171;
 }
 
-
-
-.default-btn span {
-
-	position: absolute;
-
-	display: block;
-
-	width: 0;
-
-	height: 0;
-
-	border-radius: 50%;
-
-	background-color: #3e57d0;
-
-	-webkit-transition: width 0.5s ease-in-out, height 0.5s ease-in-out;
-
-	transition: width 0.5s ease-in-out, height 0.5s ease-in-out;
-
-	-webkit-transform: translate(-50%, -50%);
-
-	transform: translate(-50%, -50%);
-
-	z-index: -1;
-
-	border-radius: 30px;
-
-}
-
-
-
-.default-btn:hover, .default-btn:focus {
-
-	color: #ffffff;
-
-}
-
-
-
-.default-btn:hover span, .default-btn:focus span {
-
-	width: 225%;
-
-	height: 562.5px;
-
+.default-btn:hover,
+.default-btn:focus {
+	background: #ffffff;
+	color: #303171;
 }
 
 
 
 .default-btn-one {
-
-	border: none;
-
 	position: relative;
-
 	display: inline-block;
-
 	text-align: center;
-
 	overflow: hidden;
-
 	z-index: 1;
-
-	color: #6b7fbb;
-
-	background-color: #ffffff;
-
-	-webkit-transition: 0.4s;
-
-	transition: 0.4s;
-
+	color: #303171;
+	background: #ffffff;
 	border-radius: 30px;
-
-	font-weight: 600;
-
+	font-weight: 700;
 	font-size: 15px;
-
 	padding-left: 40px;
-
 	padding-right: 40px;
-
 	padding-top: 12px;
-
 	padding-bottom: 12px;
-
 	margin-top: 5px;
-
 	margin-right: 20px;
-
+	border: 2px solid #303171;
+	transition: all .3s ease;
 	box-shadow: 0 7px 25px rgb(123,104,238,0.25);
-
 }
 
 
 
-.default-btn-one span {
+.default-btn-one:hover,
+.default-btn-one:focus {
 
-	position: absolute;
-
-	display: block;
-
-	width: 0;
-
-	height: 0;
-
-	border-radius: 50%;
-
-	background-color: #3e57d0;
-
-	-webkit-transition: width 0.5s ease-in-out, height 0.5s ease-in-out;
-
-	transition: width 0.5s ease-in-out, height 0.5s ease-in-out;
-
-	-webkit-transform: translate(-50%, -50%);
-
-	transform: translate(-50%, -50%);
-
-	z-index: -1;
-
-	border-radius: 30px;
-
-}
-
-
-
-.default-btn-one:hover, .default-btn-one:focus {
-
-	color: #ffffff;
-
-}
-
-
-
-.default-btn-one:hover span, .default-btn-one:focus span {
-
-	width: 225%;
-
-	height: 562.5px;
+	background: #303171;
+	color: #fff;
+	border-color: #fff;
 
 }
 
@@ -1806,8 +1686,6 @@ p:last-child {
 
     font-size: 14px;
 
-    font-weight: 500;
-
 	box-shadow: 0 2px 15px rgb(123, 104, 238, 0.15);
 
 }
@@ -2186,8 +2064,7 @@ height: 100%;
 
 .main-banner-content .banner-btn {
 
-	margin-top: 25px;
-
+	margin: 25px 0;
 }
 
 
@@ -2378,7 +2255,7 @@ height: 100%;
 
     transition: all 400ms ease-out;
 
-	text-decoration: underline;
+	text-decoration: none;
 
 }
 
@@ -7468,9 +7345,9 @@ blockquote::after, .blockquote::after {
 
 	top: 0;
 
-	background-color: #6b7fbb;
+	background: #6b7fbb;
 
-	color: #ffffff;
+	color: #fff;
 
 	border: none;
 
@@ -7490,6 +7367,12 @@ blockquote::after, .blockquote::after {
 
 	font-size: 15px;
 
+}
+
+.newsletter-form button:hover,
+.newsletter-form button:focus {
+	color: #fff;
+	background: #6b7fbb;
 }
 
 
@@ -7690,7 +7573,7 @@ blockquote::after, .blockquote::after {
 	left: 0;
 	width: 120px;
 	height: 100%;
-	background: #6b7fbb;
+	background: #303171;
 	transition: all .3s ease;
 	border-radius: 30px;
 }
@@ -7784,15 +7667,24 @@ blockquote::after, .blockquote::after {
 }
 
 .price-description {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
 	margin-top: 15px;
+}
+
+.price-description:before {
+	content: "Plan Best For:";
+	font-weight: 600;
 }
 
 .formula-result {
 	margin: 0;
+	outline: 0;
 }
 
 .formula-input {
-	background: rgba(173,216,230,0.4);
+    background: rgb(107 127 187 / 30%);
 	margin-bottom: 15px;
 }
 .input-group-append,
@@ -7800,12 +7692,19 @@ blockquote::after, .blockquote::after {
 	margin-bottom: 15px;
 }
 
+.input-group-text {
+	background: rgb(107 127 187 / 30%);
+}
+
 .input-group-append ~ .formula-input {
 	margin-bottom: 15px;
 }
 
 .formula-input:focus {
-	background: rgba(173,216,230,0.4);
+	border-color: transparent;
+	outline: 0;
+	box-shadow: none;
+    background: rgb(107 127 187 / 30%);
 }
 
 .banner-btn a {
@@ -7895,4 +7794,10 @@ blockquote::after, .blockquote::after {
 
 .label-primary {
 	color: #303171;
+}
+
+
+.dummy-link {
+	color: #6b7fbb;
+	outline: 0;
 }
