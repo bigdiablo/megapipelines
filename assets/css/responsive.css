@@ -147,7 +147,7 @@
 		border-radius: 5px;
 	}
 
-	.overview-content span {
+	.overview-content span:not(.dummy-link) {
 		font-size: 15px;
 	}
 
@@ -596,7 +596,7 @@
 	.partner-list .partner-item:nth-child(6) {
 		margin-left: 0;
 	}
-	.overview-content span {
+	.overview-content span:not(.dummy-link) {
 		font-size: 15px;
 	}
 
